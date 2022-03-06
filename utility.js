@@ -132,3 +132,37 @@ for(let j=0; j<n; j++) {
   return b;
 }
 //console.log(flatten([1,[2],[3,[[4]]]],true));
+
+
+var inheritWithout=(...obj) => {
+  console.log(obj);
+     let len=obj.length;
+     if(len<2 || len==null) {
+       return obj[0];
+     }
+     else {
+       for(let i=1; i<len; i++) {
+         let source=obj[i];
+         for(let k in source) {
+           if(source.hasOwnProperty(k)) {
+             obj[0][k]=source[k];
+           }
+         }
+       }
+     }
+     return obj[0];
+};
+
+var b={
+  address:'11'
+};
+
+var d={
+  h:"6"
+};
+
+
+
+console.log(inheritWithout({
+  name:"garv"
+}),b,d);
